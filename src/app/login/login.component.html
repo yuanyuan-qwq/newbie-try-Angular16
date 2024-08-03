@@ -1,0 +1,24 @@
+<div class="login-container">
+  <div class="login-form">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username">Username:</label>
+        <input id="username" formControlName="username" />
+        <div *ngIf="f['username'].errors && (f['username'].dirty || f['username'].touched)">
+          <small *ngIf="f['username'].errors['required']">Username is required.</small>
+        </div>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input id="password" type="password" formControlName="password" />
+        <div *ngIf="f['password'].errors && (f['password'].dirty || f['password'].touched)">
+          <small *ngIf="f['password'].errors['required']">Password is required.</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      <p>Don't have an account? <a routerLink="/register">Register here</a></p>
+      <p *ngIf="loginFailed" style="color: red;">Login failed. Please check your credentials.</p>
+    </form>
+  </div>
+</div>

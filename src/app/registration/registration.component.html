@@ -1,0 +1,47 @@
+<div class="registration-container">
+  <!-- <div class="logo-container">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+  </div> -->
+  <div class="registration-form">
+    <h2>Register</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username">Username:</label>
+        <input id="username" formControlName="username" />
+        <div *ngIf="f['username'].errors && (f['username'].dirty || f['username'].touched)">
+          <small *ngIf="f['username'].errors['required']">Username is required.</small>
+          <small *ngIf="f['username'].errors['minlength']">Username must be at least 3 characters long.</small>
+          <small *ngIf="f['username'].errors['maxlength']">Username cannot be more than 20 characters long.</small>
+        </div>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" />
+        <div *ngIf="f['email'].errors && (f['email'].dirty || f['email'].touched)">
+          <small *ngIf="f['email'].errors['required']">Email is required.</small>
+          <small *ngIf="f['email'].errors['email']">Email must be a valid email address.</small>
+        </div>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input id="password" type="password" formControlName="password" />
+        <div *ngIf="f['password'].errors && (f['password'].dirty || f['password'].touched)">
+          <small *ngIf="f['password'].errors['required']">Password is required.</small>
+          <small *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters long.</small>
+        </div>
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input id="confirmPassword" type="password" formControlName="confirmPassword" />
+        <div *ngIf="f['confirmPassword'].errors && (f['confirmPassword'].dirty || f['confirmPassword'].touched)">
+          <small *ngIf="f['confirmPassword'].errors['required']">Confirm Password is required.</small>
+          <small *ngIf="f['confirmPassword'].errors['mismatch']">Passwords must match.</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+      <p *ngIf="registrationFailed" style="color: red;">Registration failed. Username or email already exists.</p>
+      <p *ngIf="registrationSuccess" style="color: green;">Registration successful! Redirecting to login...</p>
+      <p>Already have an account? <a routerLink="/login">Go back to login</a></p>
+    </form>
+  </div>
+</div>
