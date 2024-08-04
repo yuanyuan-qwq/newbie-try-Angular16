@@ -10,3 +10,7 @@
 # Dashboard
 
 ![image](https://github.com/user-attachments/assets/80dbc086-9bdc-4a1e-b910-21d4614f78e2)
+
+# read json
+
+![image](https://github.com/user-attachments/assets/7f2411bb-21ee-4493-9387-c99e8e010883)
