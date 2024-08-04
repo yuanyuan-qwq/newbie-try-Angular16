@@ -1,0 +1,5 @@
+{
+  "labels": ["Label1", "Label2", "Label3", "Label4", "Label5"],
+  "label": "My Radar Chart",
+  "data": [60, 20, 80, 40, 50]
+}
